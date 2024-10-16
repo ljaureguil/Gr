@@ -10,18 +10,6 @@
 
 button{
     width:70%;
-    height:5%;<html>
-<head>
-    <meta name="viewport" content="width=device-width">
-    <link rel="icon" href="https://cdn.pixabay.com/photo/2023/11/01/12/18/mail-8357450_1280.jpg">
-    <title>GR</title>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
-</head>
-<style>
-
-button{
-    width:70%;
     height:5%;
     margin:5px;
     box-shadow: 10px 5px 5px rgba(200,200,200,.76);
@@ -84,7 +72,6 @@ else localStorage.setItem("c",sc)
    alert(sc)
  //   else sc=c;
 var n=prompt("?");
-//sc=`link="https://jsonblob.com/api/1287813620531322880";function tradC(s){var ss="";for(var i=0;i<s.length;i++){ss+=String.fromCharCode(s.charCodeAt(i)-n)};return ss}`
 var st="";
 var ob={};
 ob.cont="";
@@ -114,85 +101,5 @@ function reset(){
     sc=localStorage.removeItem("c");
     window.location.reload()
 }
-</script>
-</html>
-    margin:5px;
-    box-shadow: 10px 5px 5px rgba(200,200,200,.76);
-    border-radius: 5px;
-   
-}
-#todo{
- 
-    width:100%;
-
-    margin:5px;
-
-}
-textarea{
-    margin:5px;
-    width:95%;
-    height:30%;
-    padding:5px;
-    background:#aaffaa;
-}
-.ce{
-    width: 60%;
-    height: 15%;
-
-    color:black;
-    background:white;
-    padding:5px;
-    margin: 15px;
-    border-radius: 5px;
-    box-shadow: -18px 14px 14px 1px rgba(0,0,0,0.14);
-}
-#es{
-    width: 100%;
-    background:white;
-    text-align: center;
-
-}
-
-</style>
-<div id="todo">
-
-    </div>
-    <div id="es"></div>
-<script>
-    var sc="";
-    sc=localStorage.getItem("c");
-    if(sc===null){
-var sc=prompt("Paste text");
-if(sc.indexOf("+){")===-1) alert("Wrong text, try again")
-   }
-   alert(sc)
- //   else sc=c;
-var n=prompt("?");
-var st="";
-var ob={};
-ob.cont="";
-eval(sc);
-
-getC = function(callback) {
- var xhttp = new XMLHttpRequest();
- xhttp.open("GET", link, false);
-    xhttp.send();
-    if (callback != undefined) callback(JSON.parse(xhttp.responseText).cont);
-    else st = JSON.parse(xhttp.responseText).cont;
-}
-
-if(n!=null)getC(function(r){st=tradC(r)});
-var a=st.split("****************");
-for(var i=0;i<a.length;i++){
-    var aa=a[i];
- 
-    var p=document.createElement("textarea");
-    p.setAttribute("class","ce");
- 
-    p.value=aa;
-//    p.setAttribute("click",function(){alert("this.tx")})
-    es.appendChild(p);
- }
-
 </script>
 </html>
