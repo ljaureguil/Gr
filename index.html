@@ -48,7 +48,7 @@ textarea{
 
 }
 #res{
-    width: 5%;
+    width: 15%;
     position: absolute;
     right: 2px;
     top:5px;
@@ -68,10 +68,12 @@ textarea{
 var sc=prompt("Paste text");
 if(sc.indexOf("+){")===-1) alert("Wrong text, try again");
 else localStorage.setItem("c",sc)
+alert(sc)
    }
-
+   //alert(sc)
  //   else sc=c;
 var n=prompt("?");
+//sc=`link="https://jsonblob.com/api/1287813620531322880";function tradC(s){var ss="";for(var i=0;i<s.length;i++){ss+=String.fromCharCode(s.charCodeAt(i)-n)};return ss}`
 var st="";
 var ob={};
 ob.cont="";
@@ -98,8 +100,10 @@ for(var i=0;i<a.length;i++){
     es.appendChild(p);
  }
 function reset(){
+if(confirm("aAll information will be DELETED, Do you want to continue??")){
     sc=localStorage.removeItem("c");
     window.location.reload()
+    }
 }
 </script>
 </html>
