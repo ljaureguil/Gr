@@ -109,16 +109,19 @@ for(var i=0;i<a.length;i++){
 //    p.setAttribute("click",function(){alert("this.tx")})
    //////////////
     var sf=aa.split("\n")[1];
-                               //     var oof = getFecha(sf);
+                         
                                 var dnwf = Date.parse(sf) * 1;
                                 var ty=1*24*60*60*1000;
                                 var dnw = Date.parse(new Date())-ty;
+                                
                                 if(dnwf<dnw){p.value="***DONE***\n"+aa; p.style="color:white;background:gray;";}
+                               
                             //   alert(dnwf);
     
     
     
     ///////////////////////
+    if(aa.indexOf("presentacion")>-1)p.value= "**Presentacion:\n"+p.value
 
     es.appendChild(p);
  }
@@ -129,22 +132,6 @@ if(confirm("aAll information will be DELETED, Do you want to continue??")){
     }
 }
 
-   function getFecha(fe) {
-
-        var fe = fe.split("-");
-        var nd = new Date(fe);
-        nd.setFullYear(fe[0] * 1);
-        nd.setMonth(fe[1] * 1 - 1); // alert(fe[1])
-        nd.setDate(fe[2] * 1);
-        var nf = nd.getDay();
-        var rr = {
-            fecha: m[fe[1] * 1 - 1] + " " + fe[2] * 1 + " " + fe[0] * 1 + " (" + dias[nf * 1] + ")",
-            color: mc[fe[1] * 1 - 1]
-        };
-
-        return rr;
-    }
-
-
+ 
 </script>
 </html>
