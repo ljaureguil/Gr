@@ -62,6 +62,7 @@ textarea{
     </div>
     <div id="es"></div>
 <script>
+// localStorage.removeItem("fes");
     var sc="";
     sc=localStorage.getItem("c");
     if(sc===null){
@@ -91,12 +92,16 @@ if(n!=null) getC(function(r){
       st=tradC(r);
     var a=st.split("****************");
     
-
+al=[];
     
      var loc=localStorage.getItem("fes");
- if(loc===null) localStorage.setItem("fes",st);
+ if(loc===null) {
+ localStorage.setItem("fes",st);
+ al=st.split("****************");
+ 
+ }
  else{
-     var al=loc.split("****************");
+     al=loc.split("****************");
      var ms="*** Check, there has been an update...";
             if(a.length>al.length) ms+="\n\nAn event has been added";
      if(a.length<al.length) ms+="\n\nAn event has been deleted";  
