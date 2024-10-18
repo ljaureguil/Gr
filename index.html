@@ -8,19 +8,14 @@
 </head>
 <style>
 
-button{
-    width:70%;
-    height:5%;
-    margin:5px;
-    box-shadow: 10px 5px 5px rgba(200,200,200,.76);
-    border-radius: 5px;
-   
-}
+
 #todo{
  
     width:100%;
+    height:100%;
+    overflow:auto;
 
-    margin:5px;
+
 
 }
 textarea{
@@ -50,19 +45,20 @@ textarea{
 #res{
     width: 15%;
     position: absolute;
-    right: 2px;
-    top:5px;
+    right: 10px;
+    top:10px;
     background: red;
     color: white;
+    border-radius: 5px;
+       box-shadow: -12px 10px 10px 1px rgba(90,0,0,0.24); 
 }
 
-</style>
+</style><button id="res" onclick="reset()">Reset</button>
 <div id="todo">
-<button id="res" onclick="reset()">Reset</button>
-    </div>
-    <div id="es"></div>
+
+
+    <div id="es"></div>    </div>
 <script>
-// localStorage.removeItem("fes");
     var sc="";
     sc=localStorage.getItem("c");
     if(sc===null){
@@ -90,18 +86,14 @@ getC = function(callback) {
 
 if(n!=null) getC(function(r){
       st=tradC(r);
+      if(st.indexOf("\n****************")===-1){ alert("Check the pin, doesn't looks right");window.location.reload()}
+      else{
     var a=st.split("****************");
     
-al=[];
-    
      var loc=localStorage.getItem("fes");
- if(loc===null) {
- localStorage.setItem("fes",st);
- al=st.split("****************");
- 
- }
+ if(loc===null) localStorage.setItem("fes",st);
  else{
-     al=loc.split("****************");
+     var al=loc.split("****************");
      var ms="*** Check, there has been an update...";
             if(a.length>al.length) ms+="\n\nAn event has been added";
      if(a.length<al.length) ms+="\n\nAn event has been deleted";  
@@ -133,7 +125,7 @@ for(var i=0;i<a.length;i++){
     es.appendChild(p);
  }
 
- 
+      }
  });
  
  
