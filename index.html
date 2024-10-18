@@ -32,7 +32,7 @@ textarea{
 }
 .ce{
     width: 65%;
-    height: 15%;
+    height: 25%;
 
     color:black;
     background:white;
@@ -79,15 +79,6 @@ var ob={};
 ob.cont="";
 eval(sc);
 
-/*
-                                var oof = getFecha(o.fe);
-                                var dnwf = Date.parse(o.fe) * 1;
-                                var ty=32*24*60*60*1000;
-                                var dnw = Date.parse(new Date())-ty;
-
-
-*/
-
 getC = function(callback) {
  var xhttp = new XMLHttpRequest();
  xhttp.open("GET", link, false);
@@ -96,18 +87,35 @@ getC = function(callback) {
     else st = JSON.parse(xhttp.responseText).cont;
 }
 
-if(n!=null)getC(function(r){st=tradC(r)});
-var a=st.split("****************");
+if(n!=null) getC(function(r){
+      st=tradC(r);
+    var a=st.split("****************");
+    
+
+    
+     var loc=localStorage.getItem("fes");
+ if(loc===null) localStorage.setItem("fes",st);
+ else{
+     var al=loc.split("****************");
+     var ms="*** Check, there has been an update...";
+            if(a.length>al.length) ms+="\n\nAn event has been added";
+     if(a.length<al.length) ms+="\n\nAn event has been deleted";  
+     if(loc!=st) alert(ms);
+
+     localStorage.setItem("fes",st);
+ 
+     
+ }
+  
+
+
 for(var i=0;i<a.length;i++){
     var aa=a[i];
- 
- 
+    if(aa!=al[i]) alert(al[i]+"\n\nThis event has been updated");
     var p=document.createElement("textarea");
     p.setAttribute("class","ce");
  
     p.value=aa;
-//    p.setAttribute("click",function(){alert("this.tx")})
-   //////////////
     var sf=aa.split("\n")[1];
                          
                                 var dnwf = Date.parse(sf) * 1;
@@ -115,22 +123,25 @@ for(var i=0;i<a.length;i++){
                                 var dnw = Date.parse(new Date())-ty;
                                 
                                 if(dnwf<dnw){p.value="***DONE***\n"+aa; p.style="color:white;background:gray;";}
-                               
-                            //   alert(dnwf);
-    
-    
-    
-    ///////////////////////
-    if(aa.indexOf("presentacion")>-1)p.value= "**Presentacion:\n"+p.value
+   if(aa.indexOf("presentacion")>-1)p.value= "**Presentacion:\n"+p.value
 
     es.appendChild(p);
  }
+
+ 
+ });
+ 
+ 
 function reset(){
 if(confirm("aAll information will be DELETED, Do you want to continue??")){
     sc=localStorage.removeItem("c");
     window.location.reload()
     }
 }
+
+function diff(a,b){return b.split(a).join('');}
+
+
 
  
 </script>
