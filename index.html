@@ -68,8 +68,7 @@
         else localStorage.setItem("c", sc)
         alert(sc)
     }
-    //alert(sc)
-    //   else sc=c;
+  
     var n = prompt("?");
 
     var st = "";
@@ -94,9 +93,10 @@
             var a = st.split("****************");
 
             var loc = localStorage.getItem("fes");
+            var al=[];
             if (loc === null) localStorage.setItem("fes", st);
             else {
-                var al = loc.split("****************");
+                al = loc.split("****************");
                 var ms = "*** Check, there has been an update...";
                 if (a.length > al.length) ms += "\n\nAn event has been added";
                 if (a.length < al.length) ms += "\n\nAn event has been deleted";
@@ -109,9 +109,19 @@
 
             for (var i = 0; i < a.length; i++) {
                 var aa = a[i];
-                if (aa != al[i]) alert(al[i] + "\n\nThis event has been updated to: \n\n" + aa);
+                var f1=aa.slice(aa.indexOf("Fecha:"),aa.indexOf("Horas"));
+       
+                  for (var ii = 0; ii < al.length; ii++) {
+                                 
+                var f2=al[ii].slice(al[ii].indexOf("Fecha:"),al[ii].indexOf("Horas"));
+                if (f1 === f2 && al[ii]!=a[i]) alert(al[ii] + "\n\nThis event has been updated to: \n\n" + aa);
+                   
+                  }
+       
+       
                 var p = document.createElement("textarea");
                 p.setAttribute("class", "ce");
+                p.readOnly=true;
 
                 p.value = aa;
                 if (aa.toUpperCase().indexOf("-PRESENTACION") > -1) p.style = "background:#f0fff0;border-color:red;";
