@@ -25,7 +25,7 @@
     }
 
     .ce {
-        width: 65%;
+        width: 80%;
         height: 25%;
 
         color: black;
@@ -122,10 +122,15 @@
                 var p = document.createElement("textarea");
                 p.setAttribute("class", "ce");
                 p.readOnly=true;
+                
 
-                p.value = aa;
+                p.value = aa;p.style = "border-color:#0f0;"
                 if (aa.toUpperCase().indexOf("-PRESENTACION") > -1) p.style = "background:#f0fff0;border-color:red;";
-                if (aa.toUpperCase().indexOf("***DONE") > -1) p.style = "background:#eeeeee;";
+                if (aa.toUpperCase().indexOf("***DONE") > -1) {
+                    
+                p.style = "border-color:blue; text-decoration: line-through;  ";//
+              // p.value= p.value.strike();
+                }
                 es.appendChild(p);
             }
 
