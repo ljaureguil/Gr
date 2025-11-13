@@ -59,33 +59,37 @@
 
     <div id="es"></div>
 </div>
+
 <script>
+loadDoc('https://raw.githubusercontent.com/ljaureguil/My-Library/refs/heads/master/MyLibmin.js',function(r){
+    eval(r);
+//alert(r);
+  //  alert(tradC)
     var sc = "";
+ //   alert(UpdateText);//function tradC(s){var ss="";for(var i=0;i<s.length;i++){ss+=String.fromCharCode(s.charCodeAt(i)-n)};return ss}
+    link='https://api.jsonblob.com/'+'019a739e-cd7a-71e5-ad0a-ded84eb88b5f';
+    localStorage.setItem("c","019a739e-cd7a-71e5-ad0a-ded84eb88b5f")
     sc = localStorage.getItem("c");
     if (sc === null) {
-        var sc = prompt("Paste text");
-        if (sc.indexOf("+){") === -1) alert("Wrong text, try again");
-        else localStorage.setItem("c", sc)
-        alert(sc)
+
     }
-  
     var n = prompt("?");
 
     var st = "";
     var ob = {};
     ob.cont = "";
-    eval(sc);
+   // eval(sc);
 
     getC = function(callback) {
-        var xhttp = new XMLHttpRequest();
-        xhttp.open("GET", link, false);
-        xhttp.send();
-        if (callback != undefined) callback(JSON.parse(xhttp.responseText).cont);
-        else st = JSON.parse(xhttp.responseText).cont;
+      
+        GetJson(link,function(r){callback(r.cont)})
+
+
     }
 
     if (n != null) getC(function(r) {
-        st = tradC(r);
+      
+        st = tradC(r,n);
         if (st.indexOf("\n****************") === -1) {
             alert("Check the pin, doesn't looks right");
             window.location.reload()
@@ -157,6 +161,20 @@
     function diff(a, b) {
         return b.split(a).join('');
     }
+
+    });
+
+     function loadDoc(url, callback) {
+        var xhttp = new XMLHttpRequest();
+        xhttp.open("GET", url, false);
+        xhttp.send();
+        callback(xhttp.responseText);
+
+    }
 </script>
 
 </html>
+
+
+
+
