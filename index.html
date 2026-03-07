@@ -27,13 +27,28 @@
     .ce {
         width: 80%;
         height: 25%;
+        text-align:left
 
         color: black;
         background-color: white;
-        padding: 5px;
+       // padding: 5px;
         margin: 15px;
         border-radius: 5px;
         box-shadow: -18px 14px 14px 1px rgba(0, 0, 0, 0.14);
+    }
+    .cee {
+        width: 100%;
+        height: 100%;
+        text-align:left
+
+        color: black;
+        background-color: white;
+      //  padding: 5px;
+      //  margin: 15px;
+      //  border-radius: 5px;
+      border:none;
+      background:none;
+       // box-shadow: -18px 14px 14px 1px rgba(0, 0, 0, 0.14);
     }
 
     #es {
@@ -126,10 +141,13 @@ loadDoc('https://raw.githubusercontent.com/ljaureguil/My-Library/refs/heads/mast
                    
                   }
        
-       
-                var p = document.createElement("textarea");
+         var p = document.createElement("button");
+                var pp = document.createElement("textarea");
+                 pp.setAttribute("class", "cee");
+                
                 p.setAttribute("class", "ce");
-                p.readOnly=true;
+                p.style.textAlign="center";
+                pp.readOnly=true;
                 
                   
  ///////////////////////////////////////////               
@@ -151,7 +169,11 @@ p.onclick=function(){
 
    //////////////////////////////////////////////////             
  
-                p.value = aa;p.style = "border-color:#0f0;"
+                p.value = aa;p.style = "border-color:#0f0;";
+                pp.value=aa;
+                var g=aa.replace(/\n/g,"<br>");
+              //  p.innerHTML=g;
+                p.appendChild(pp);
                 if (aa.toUpperCase().indexOf("-PRESENTACION") > -1) p.style = "background:#f0fff0;border-color:red;";
                 if (aa.toUpperCase().indexOf("***DONE") > -1) {
                     
@@ -198,5 +220,4 @@ p.onclick=function(){
 
 </html>
  
-
 
